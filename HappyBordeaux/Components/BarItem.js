@@ -5,6 +5,7 @@ import { StyleSheet, View, Text, Image } from 'react-native'
 
 class BarItem extends React.Component {
   render() {
+      const bar = this.props.bar
     return (
       <View style={styles.main_container}>
         <Image
@@ -13,15 +14,15 @@ class BarItem extends React.Component {
         />
         <View style={styles.content_container}>
           <View style={styles.header_container}>
-            <Text style={styles.title_text}>Nom du Bar</Text>
-            <Text style={styles.vote_text}>Note</Text>
+            <Text style={styles.title_text}>{bar.nom}</Text>
+    <Text style={styles.vote_text}>{bar.note}</Text>
           </View>
           <View style={styles.description_container}>
-            <Text style={styles.description_text} numberOfLines={6}>Description</Text>
+            <Text style={styles.description_text} numberOfLines={6}>{bar.descr}</Text>
             {/* La propriété numberOfLines permet de couper un texte si celui-ci est trop long, il suffit de définir un nombre maximum de ligne */}
           </View>
           <View style={styles.hh_container}>
-            <Text style={styles.hh_text}>XXh-XXh</Text>
+            <Text style={styles.hh_text}>Happy hour de {bar.HappyH}</Text>
           </View>
         </View>
       </View>

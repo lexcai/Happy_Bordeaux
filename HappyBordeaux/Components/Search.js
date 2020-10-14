@@ -17,11 +17,12 @@ class Search extends React.Component {
 
                 <FlatList
                     data={bars}
-                    renderItem={({item}) => <BarItem/>}
+                    keyExtractor={(item) => item.id.toString()}
+                    renderItem={({item}) => <BarItem bar={item}/>}
                 />
 
             </View>
-        )
+         )
      }
 }
 
