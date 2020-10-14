@@ -3,20 +3,23 @@
 
 import React from 'react'
 import { StyleSheet, View, TextInput, Button, Text , FlatList} from 'react-native'
+import bars from '../Helpers/BarData'
+import BarItem from './BarItem'
+
 
 class Search extends React.Component {
     render() {
         return (
             <View style={styles.main_container}>
-                <TextInput style={styles.textinput} placeholder='Titre du film'/>
+                <TextInput style={styles.textinput} placeholder='Nom du bar'/>
 
                 <Button title='Rechercher' onPress={() => {}}/>
 
                 <FlatList
-                  data={[{key: 'a'}, {key: 'b'}]}
-                  renderItem={({item}) => <Text>{item.key}</Text>}
+                    data={bars}
+                    renderItem={({item}) => <BarItem/>}
                 />
-                
+
             </View>
         )
      }
