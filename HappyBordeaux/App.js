@@ -14,9 +14,7 @@ import {
   StatusBar,
 } from 'react-native';
 
-import {
-  Colors,
-} from 'react-native/Libraries/NewAppScreen';
+
 import Search from './Components/Search'
 
 const App: () => React$Node = () => {
