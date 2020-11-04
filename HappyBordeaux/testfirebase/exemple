@@ -1,4 +1,0 @@
-firestore().collection('users').doc(user.uid).set({
-    username: '',
-    email: '',
-})
