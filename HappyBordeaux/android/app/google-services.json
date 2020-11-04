@@ -1,34 +1,34 @@
 {
   "project_info": {
-    "project_number": "520846002180",
-    "firebase_url": "https://happy-69fef.firebaseio.com",
-    "project_id": "happy-69fef",
-    "storage_bucket": "happy-69fef.appspot.com"
+    "project_number": "373022352908",
+    "firebase_url": "https://happyv1.firebaseio.com",
+    "project_id": "happyv1",
+    "storage_bucket": "happyv1.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:520846002180:android:959eaac681374fb9428d51",
+        "mobilesdk_app_id": "1:373022352908:android:b27790c102c920355ef029",
         "android_client_info": {
           "package_name": "com.happybordeaux"
         }
       },
       "oauth_client": [
         {
-          "client_id": "520846002180-7okv500c05sp23uqlstjk9lqcshk63kq.apps.googleusercontent.com",
+          "client_id": "373022352908-fi3ogkfqihnmllefsgqbt2i23euk80j1.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyBK1ZS9DY3FPCQn6HLdh4Ri3EJaxhFZ-q4"
+          "current_key": "AIzaSyDw_J73fmUal_QmD3wVlDQkQUfJae5BssY"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "520846002180-7okv500c05sp23uqlstjk9lqcshk63kq.apps.googleusercontent.com",
+              "client_id": "373022352908-fi3ogkfqihnmllefsgqbt2i23euk80j1.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

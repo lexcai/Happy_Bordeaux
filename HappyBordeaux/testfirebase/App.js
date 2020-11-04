@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { StyleSheet, View, Text, TextInput, Button } from 'react-native';
+import { View, Text, TextInput, Button } from 'react-native';
 
 import auth from '@react-native-firebase/auth';
 import firestore from '@react-native-firebase/firestore';
@@ -44,18 +44,14 @@ function App() {
     return (
       <View>
         <Text>Pas connecté, inscription en dessous</Text>
-        <Text style={styles.main_text}>Votre Email</Text>
-        <TextInput style={styles.textinput} value={email} placeholder="Email" onChangeText={setEmail} />
-        <Text style={styles.main_text}>Votre mot de passe</Text>
-        <TextInput style={styles.textinput} value={password} placeholder="******" onChangeText={(text) => setPassword(text)} />
-        <Text style={styles.main_text}>Votre nom d'utilisateur</Text>
-        <TextInput style={styles.textinput} value={username} placeholder="Pseudo" onChangeText={(text) => setUsername(text)} />
-     
-        <Button style={styles.submit} title={'Submit'} onPress={() => createAccount()} />
+        <TextInput value={email} onChangeText={setEmail} />
+        <TextInput value={password} onChangeText={(text) => setPassword(text)} />
+        <TextInput value={username} onChangeText={(text) => setUsername(text)} />
+
+        <Button title={'Submit'} onPress={() => createAccount()} />
       </View>
     );
-      }
-
+  }
 
   return (
     <View>
@@ -63,26 +59,6 @@ function App() {
       <Button title={'Déconnexion'} onPress={() => auth().signOut()} />
     </View>
   );
-
 }
-
-
-const styles = StyleSheet.create({
-  main_text: {
-    marginTop: 10,
-    textAlign: 'center'
-  },
-  textinput: {
-    marginLeft: 5,
-    marginRight: 5,
-    height: 50,
-    borderColor: '#000000',
-    borderWidth: 1,
-    paddingLeft: 5
-  },
-  submit: {
-    paddingTop: 10
-  } 
-})
 
 export default App;
