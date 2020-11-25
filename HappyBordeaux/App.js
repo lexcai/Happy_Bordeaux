@@ -4,31 +4,49 @@
  *
  * @format
  * @flow strict-local
+ * https://reactnavigation.org/docs/4.x/navigating : tuto hyper cool
  */
 
+
 import React from 'react';
-import {
-  SafeAreaView,
-  StyleSheet,
-  View,
-  StatusBar,
-} from 'react-native';
+import { createAppContainer } from 'react-navigation';
+import { createStackNavigator } from 'react-navigation-stack';
+import { StyleSheet } from 'react-native';
 
-import {
-  Colors,
-} from 'react-native/Libraries/NewAppScreen';
+import { Colors } from 'react-native/Libraries/NewAppScreen';
 import Search from './Components/Search'
+import AlgoFiltre from './Components/AlgoFiltre'
 
+/*
 const App: () => React$Node = () => {
   return (
     <>
       <StatusBar barStyle="dark-content" />
        <View>
-        <Search/>
+        <Search />
        </View>
     </>
   );
 };
+*/
+
+const AppNavigator = createStackNavigator(
+  {
+    Search: Search,
+    AlgoFiltre: AlgoFiltre,
+  },
+  {
+    initialRouteName: 'Search',
+  }
+);
+
+const AppContainer = createAppContainer(AppNavigator);
+
+export class App extends React.Component {
+  render() {
+    return <AppContainer />;
+  }
+}
 
 const styles = StyleSheet.create({
   scrollView: {
@@ -69,4 +87,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default App;
+export default App
