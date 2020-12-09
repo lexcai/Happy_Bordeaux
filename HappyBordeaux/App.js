@@ -16,6 +16,7 @@ import { StyleSheet } from 'react-native';
 import { Colors } from 'react-native/Libraries/NewAppScreen';
 import Search from './Components/Search'
 import AlgoFiltre from './Components/AlgoFiltre'
+import Carte from './Components/Carte'
 
 /*
 const App: () => React$Node = () => {
@@ -34,6 +35,7 @@ const AppNavigator = createStackNavigator(
   {
     Search: Search,
     AlgoFiltre: AlgoFiltre,
+    Carte: Carte,
   },
   {
     initialRouteName: 'Search',

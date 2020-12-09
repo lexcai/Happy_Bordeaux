@@ -18,7 +18,7 @@ class Search extends React.Component {
           <Button style={styles.boutonFiltre} title='•••' onPress={() => this.props.navigation.navigate('AlgoFiltre')}/>
         </View>
       </View>
-        <Button title='Rechercher' onPress={() => {alert('You tapped the button!');}}/>
+        <Button title='Rechercher' onPress={() => this.props.navigation.navigate('Carte')}/>
         <FlatList
             data={bars}
             keyExtractor={(item) => item.id.toString()}
