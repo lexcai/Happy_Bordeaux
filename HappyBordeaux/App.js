@@ -26,6 +26,7 @@ import {
 import Icon from 'react-native-vector-icons/Ionicons';
 import {createAppContainer} from 'react-navigation';
 import {createMaterialBottomTabNavigator} from 'react-navigation-material-bottom-tabs';
+import Navigation from './Components/Search'
 
 class HomeScreen extends React.Component {
   render() {
@@ -68,6 +69,7 @@ class FavScreen extends React.Component {
 }
 
 const styles = StyleSheet.create({
+
   container: {
     flex: 1,
     justifyContent: 'center',
