@@ -11,7 +11,8 @@
 import React from 'react';
 import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
-import { StyleSheet } from 'react-native';
+import { SafeAreaView, ScrollView,View,Text,StatusBar,StyleSheet } from 'react-native';
+
 
 import { Colors } from 'react-native/Libraries/NewAppScreen';
 import Search from './Components/Search'
