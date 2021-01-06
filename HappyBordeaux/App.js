@@ -13,43 +13,130 @@ import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
 import { SafeAreaView, ScrollView,View,Text,StatusBar,StyleSheet } from 'react-native';
 
-
-import { Colors } from 'react-native/Libraries/NewAppScreen';
+import {
+  Header,
+  LearnMoreLinks,
+  Colors,
+  DebugInstructions,
+  ReloadInstructions,
+} from 'react-native/Libraries/NewAppScreen';
+import Icon from 'react-native-vector-icons/Ionicons';
+import {createMaterialBottomTabNavigator} from 'react-navigation-material-bottom-tabs';
 import Search from './Components/Search'
 import AlgoFiltre from './Components/AlgoFiltre'
 import Carte from './Components/Carte'
 
-/*
-const App: () => React$Node = () => {
-  return (
-    <>
-      <StatusBar barStyle="dark-content" />
-       <View>
-        <Search />
-       </View>
-    </>
-  );
-};
-*/
+class HomeScreen extends React.Component {
+  render() {
+    return (
+      <Search></Search>
+    )
+  }
+}
+
+class ProfileScreen extends React.Component {
+  render() {
+    return (
+      <View style={styles.container}>
+        <Text>ProfileScreen</Text>
+      </View>
+    )
+  }
+}
+
+class MapScreen extends React.Component {
+  render() {
+    return (
+      <Carte></Carte>
+    )
+  }
+}
+
+class FavScreen extends React.Component {
+  render() {
+    return (
+      <View style={styles.container}>
+        <Text>FavScreen</Text>
+      </View>
+    )
+  }
+}
+class App extends React.Component {
+  render() {
+    return <AppContainer />;
+  }
+}
 
 const AppNavigator = createStackNavigator(
   {
     Search: Search,
     AlgoFiltre: AlgoFiltre,
-    Carte: Carte,
   },
   {
     initialRouteName: 'Search',
   }
 );
-
 const AppContainer = createAppContainer(AppNavigator);
 
-export class App extends React.Component {
-  render() {
-    return <AppContainer />;
+const TabNavigator = createMaterialBottomTabNavigator(
+  {
+    Accueil: {
+      screen: HomeScreen,
+      navigationOptions: {
+        tabBarIcon: ({ tintColor }) => (
+          <View>
+            <Icon style={[{color: tintColor}]} size={25} name={'ios-home'} />
+          </View>
+        ),
+      }
+    },
+    Favoris: {
+      screen: FavScreen,
+      navigationOptions: { 
+        tabBarIcon: ({ tintColor }) => (
+          <View>
+            <Icon style={[{color: tintColor}]} size={25} name={'ios-star'} />
+          </View>
+        ),
+        activeColor: '#EB5E5E',
+        inactiveColor: '#ffffff',
+        barStyle: { backgroundColor: '#5DC0C6' },
+      }
+    },
+    Carte: {
+      screen: MapScreen,
+      navigationOptions: {
+        tabBarIcon: ({ tintColor }) => (
+          <View>
+            <Icon style={[{color: tintColor}]} size={25} name={'ios-map'} />
+          </View>
+        ),
+        activeColor: '#EB5E5E',
+        inactiveColor: '#ffffff',
+        barStyle: { backgroundColor: '#5DC0C6' },
+      }
+    },
+    Profil: {
+      screen: ProfileScreen,
+      navigationOptions: {
+        tabBarIcon: ({ tintColor }) => (
+          <View>
+            <Icon style={[{color: tintColor}]} size={25} name={'ios-person'} />
+          </View>
+        ),
+        activeColor: '#EB5E5E',
+        inactiveColor: '#ffffff',
+        barStyle: { backgroundColor: '#5DC0C6' },
+      }
+    },
+  },
+  {
+    initialRouteName: 'Accueil',
+    activeColor: '#EB5E5E',
+    inactiveColor: '#ffffff',
+    barStyle: { backgroundColor: '#5DC0C6' },
   }
-}
+);
 
 const styles = StyleSheet.create({
   scrollView: {
@@ -90,4 +177,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default App
+export default createAppContainer(TabNavigator);

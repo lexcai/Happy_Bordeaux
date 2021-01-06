@@ -2,9 +2,11 @@
 
 import React from 'react'
 import { StyleSheet, View, TextInput, Image, Button, FlatList } from 'react-native'
-
+import { createAppContainer } from 'react-navigation';
+import { createStackNavigator } from 'react-navigation-stack';
 import bars from '../Helpers/BarData'
 import BarItem from './BarItem'
+import AlgoFiltre from './AlgoFiltre'
 
 class Search extends React.Component {
   render() {
@@ -18,7 +20,7 @@ class Search extends React.Component {
           <Button style={styles.boutonFiltre} title='•••' onPress={() => this.props.navigation.navigate('AlgoFiltre')}/>
         </View>
       </View>
-        <Button title='Rechercher' onPress={() => this.props.navigation.navigate('Carte')}/>
+        <Button title='Rechercher'/>
         <FlatList
             data={bars}
             keyExtractor={(item) => item.id.toString()}
@@ -39,7 +41,8 @@ const styles = StyleSheet.create({
     height: 50,
     marginLeft: 5,
     marginRight: 5,
-    marginBottom: 50
+    marginBottom: 50,
+    marginTop:50
   },
   barre: {
     flex:5,
