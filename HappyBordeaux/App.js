@@ -29,7 +29,7 @@ import Carte from './Components/Carte'
 class HomeScreen extends React.Component {
   render() {
     return (
-      <Search></Search>
+      <AppContainer />
     )
   }
 }

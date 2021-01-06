@@ -17,7 +17,7 @@ class Search extends React.Component {
           <TextInput style={styles.texteBarre} placeholder='Nom du bar'/>
         </View>
         <View style={styles.filtre}>
-          <Button style={styles.boutonFiltre} title='•••' onPress={() => this.props.navigation.navigate('AlgoFiltre')}/>
+        <Button style={styles.boutonFiltre} title='•••' onPress={() => this.props.navigation.navigate('AlgoFiltre')}/>
         </View>
       </View>
         <Button title='Rechercher'/>
@@ -41,8 +41,7 @@ const styles = StyleSheet.create({
     height: 50,
     marginLeft: 5,
     marginRight: 5,
-    marginBottom: 50,
-    marginTop:50
+    marginBottom: 50
   },
   barre: {
     flex:5,
