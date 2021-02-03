@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "459914640619",
+    "project_id": "happy-18aac",
+    "storage_bucket": "happy-18aac.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:459914640619:android:b41eaa235f77eacfe5d2ae",
+        "android_client_info": {
+          "package_name": "com.happybordeaux"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "459914640619-durmv0uiur7ilpan9rlgvdmdi8epip7m.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBkK1OVO6Xul9LNwpvnkWUjZnG57MK2tyw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "459914640619-durmv0uiur7ilpan9rlgvdmdi8epip7m.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
