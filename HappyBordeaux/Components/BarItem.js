@@ -32,6 +32,7 @@ class BarItem extends React.Component {
 
 const styles = StyleSheet.create({
   main_container: {
+    marginTop: 20,
     height: 190,
     flexDirection: 'row'
   },

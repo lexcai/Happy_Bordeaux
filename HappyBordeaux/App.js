@@ -26,6 +26,7 @@ import Search from './Components/Search'
 import AlgoFiltre from './Components/AlgoFiltre'
 import Carte from './Components/Carte'
 import Profil from './Components/Profil'
+import Favoris from './Components/Favoris';
 
 class HomeScreen extends React.Component {
   render() {
@@ -54,9 +55,7 @@ class MapScreen extends React.Component {
 class FavScreen extends React.Component {
   render() {
     return (
-      <View style={styles.container}>
-        <Text>FavScreen</Text>
-      </View>
+      <Favoris></Favoris>
     )
   }
 }

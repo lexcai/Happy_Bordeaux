@@ -1,7 +1,7 @@
 // Components/Profil.js
 
 import React from 'react';
-import {StyleSheet, View, Image, Text, FlatList, Card} from 'react-native';
+import {StyleSheet, View, Image, Text, FlatList, Card, Button} from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import Icon from 'react-native-vector-icons/Ionicons';
@@ -12,23 +12,20 @@ export class Profil extends React.Component {
             <SafeAreaView style={styles.container}>
                 <ScrollView showsVerticalScrollIndicator={false}>
                     <View style={styles.titleBar}>
-                        <Icon name="ellipsis-vertical-outline" size={24} color="#52575D"></Icon>
+                        <Icon style={styles.Logo} name="chatbubble-outline" size={28} color="#52575D"></Icon>
+                        <Icon style={styles.Logo} name="notifications-outline" size={28} color="#52575D"></Icon>
+                        <Icon name="settings-outline" size={28} color="#52575D"></Icon>
                     </View>
-                    <View style={{alignSelf:"center"}}>
-                        <View style={styles.ProfilImage}>
-                            <Icon name="person-circle-outline" size={200} color="#f2eddb"></Icon>
+                    <View style={styles.infoProfil}>
+                        <Icon name="person-circle-outline" size={200} color="#f2eddb"></Icon>
+                        <Text style={[styles.text, {fontWeight:"600", fontsize: 60}]}>Prénom Nom{"\n"}Adresse e-mail</Text>
+                        <View style={styles.bouton}>
+                            <Text style={styles.textBouton} onPress={() => {alert('You tapped the button!');}}>Modifier le profil</Text>
                         </View>
-                        <View style={styles.active}></View>
                     </View>
-
-                    <View style={styles.infoContainer}>
-                        <Text style={[styles.text, {fontWeight:"200", fontsize: 56}]}>NOM</Text>
-                        <Text style={[styles.text, {color: "#AEB5BC", fontsize: 46}]}>Age ?</Text>
-                    </View>
-                    
                     <View style={styles.statsContainer}>
                         <View style={styles.statsBox}>
-                            <Text>Participe à :</Text>
+                            <Text style={{marginLeft: 5, fontSize: 18, textDecorationLine: 'underline'}}>Évènements à venir :</Text>
                         </View>
                         <View style={styles.blocImage}>
                             <Image style={styles.listeImageBar} source={{uri: "image"}} resizeMode="center" />
@@ -37,16 +34,16 @@ export class Profil extends React.Component {
                             <Image style={styles.listeImageBar} source={{uri: "image"}} resizeMode="center" />
                         </View>
                         <View style={styles.statsBox}>
-                            <Text>Amis :</Text>
+                            <Text style={{marginLeft: 5, fontSize: 18, textDecorationLine: 'underline'}}>Ami.e.s :</Text>
                         </View>
-                        <View style={styles.blocImage}>
+                        <View style={styles.blocAmis}>
                             <Icon name="person-circle-outline" size={120} color="#f2eddb"></Icon>
                             <Icon name="person-circle-outline" size={120} color="#f2eddb"></Icon>
                             <Icon name="person-circle-outline" size={120} color="#f2eddb"></Icon>
                             <Icon name="person-circle-outline" size={120} color="#f2eddb"></Icon>
                         </View>
                         <View style={styles.statsBox}>
-                            <Text>Anciens Évennements :</Text>
+                            <Text style={{marginLeft: 5, fontSize: 18, textDecorationLine: 'underline'}}>Évènements passés :</Text>
                         </View>
                         <View style={styles.blocImage}>
                             <Image style={styles.listeImageBar} source={{uri: "image"}} resizeMode="center" />
@@ -69,7 +66,25 @@ export class Profil extends React.Component {
       },
       text: {
           fontFamily: "HelveticaNeue",
-          color: "#52575D"
+          color: "#52575D",
+          marginTop: 80
+      },
+      bouton: {
+        fontFamily: "HelveticaNeue",
+        color: "#52575D",
+        marginTop: 140,
+        marginLeft: -100,
+        width: 150,
+        height: 40,
+        fontWeight: "bold",
+        borderColor: "black",
+        borderWidth: 1,
+        borderRadius: 20,
+        textAlign: "center"
+      },
+      textBouton: {
+        marginTop: 9,
+        marginLeft: 20
       },
       image: {
         width: 200,
@@ -80,16 +95,24 @@ export class Profil extends React.Component {
       },
       titleBar: {
           flexDirection: "row",
-          justifyContent: "space-between",
+          marginLeft: 270,
           marginTop: 24,
-          marginLeft: 370,
           marginHorizontal: 16
       },
-      ProfilImage: {
+      Logo: {
+          marginRight: 20
+      },
+      nbNotif: {
+        backgroundColor: "#dd4a4b",
+        color: "#ffffff",
+        width: 15,
+        height: 15,
+        borderRadius: 3
+      },
+      infoProfil: {
+          flexDirection: "row",
           width: 200,
-          height: 200,
-          borderRadius: 100,
-          overflow: "hidden"
+          height: 200
       },
       dm: {
           backgroundColor: "#41444B",
@@ -100,16 +123,6 @@ export class Profil extends React.Component {
           borderRadius: 20,
           alignItems: "center",
           justifyContent: "center"
-      },
-      active: {
-          backgroundColor: "#34FFB9",
-          position: "absolute",
-          bottom: 28,
-          left: 10,
-          padding: 4,
-          height: 20,
-          width: 20,
-          borderRadius: 10
       },
       add: {
           backgroundColor: "#41444B",
@@ -130,15 +143,20 @@ export class Profil extends React.Component {
       statsBox: {
           flex: 1,
           marginTop: 42,
-          alignSelf: "center"
       },
       blocImage:{
+        margin: 15,
         flexDirection: "row",
+        backgroundColor: "#eb7570"
+      },
+      blocAmis:{
+        flexDirection: "row"
       },
       listeImageBar: {
         width: 120,
-        height: 180,
-        margin: 5,
+        height: 90,
+        margin: 15,
+        marginRight: 5,
         backgroundColor: 'gray'
       },
       listeImageAmis: {
