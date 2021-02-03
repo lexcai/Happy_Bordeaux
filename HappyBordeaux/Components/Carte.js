@@ -43,4 +43,8 @@ const styles = StyleSheet.create({
     }
   });
 
+<<<<<<< HEAD
   export default Carte
+=======
+  export default Carte
+>>>>>>> origin/fusion

@@ -70,4 +70,8 @@ const styles = StyleSheet.create({
     }
   });
 
+<<<<<<< HEAD
   export default AlgoFiltre
+=======
+  export default AlgoFiltre
+>>>>>>> origin/fusion
