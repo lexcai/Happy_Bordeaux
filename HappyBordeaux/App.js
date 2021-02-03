@@ -1,88 +1,180 @@
-import React, { useState, useEffect } from 'react';
-import { StyleSheet, View, Text, TextInput, Button } from 'react-native';
+/**
+ * Sample React Native App
+ * https://github.com/facebook/react-native
+ *
+ * @format
+ * @flow strict-local
+ * https://reactnavigation.org/docs/4.x/navigating : tuto hyper cool
+ */
 
-import auth from '@react-native-firebase/auth';
-import firestore from '@react-native-firebase/firestore';
 
-function App() {
-  // Set an initializing state whilst Firebase connects
-  const [initializing, setInitializing] = useState(true);
-  const [user, setUser] = useState();
+import React from 'react';
+import { createAppContainer } from 'react-navigation';
+import { createStackNavigator } from 'react-navigation-stack';
+import { SafeAreaView, ScrollView,View,Text,StatusBar,StyleSheet } from 'react-native';
 
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [username, setUsername] = useState('');
+import {
+  Header,
+  LearnMoreLinks,
+  Colors,
+  DebugInstructions,
+  ReloadInstructions,
+} from 'react-native/Libraries/NewAppScreen';
+import Icon from 'react-native-vector-icons/Ionicons';
+import {createMaterialBottomTabNavigator} from 'react-navigation-material-bottom-tabs';
+import Search from './Components/Search'
+import AlgoFiltre from './Components/AlgoFiltre'
+import Carte from './Components/Carte'
 
-  // Handle user state changes
-  function onAuthStateChanged(user) {
-    setUser(user);
-    if (initializing) setInitializing(false);
-  }
-
-  useEffect(() => {
-    const subscriber = auth().onAuthStateChanged(onAuthStateChanged);
-    return subscriber; // unsubscribe on unmount
-  }, []);
-
-  function createAccount() {
-    auth().createUserWithEmailAndPassword(email, password)
-    .then(() => {
-      console.log('utilisateur inscrit');
-      firestore().collection('users').doc(auth().currentUser.uid).set({
-        username: username,
-        email: email,
-      })
-    })
-    .catch(function(error) {
-      console.log(error);
-    })
-  }
-
-  if (initializing) return null;
-
-  if (!user) {
+class HomeScreen extends React.Component {
+  render() {
     return (
-      <View>
-        <Text>Pas connecté, inscription en dessous</Text>
-        <Text style={styles.main_text}>Votre Email</Text>
-        <TextInput style={styles.textinput} value={email} placeholder="Email" onChangeText={setEmail} />
-        <Text style={styles.main_text}>Votre mot de passe</Text>
-        <TextInput style={styles.textinput} value={password} placeholder="******" onChangeText={(text) => setPassword(text)} />
-        <Text style={styles.main_text}>Votre nom d'utilisateur</Text>
-        <TextInput style={styles.textinput} value={username} placeholder="Pseudo" onChangeText={(text) => setUsername(text)} />
-     
-        <Button style={styles.submit} title={'Submit'} onPress={() => createAccount()} />
-      </View>
-    );
-      }
-
-
-  return (
-    <View>
-      <Text>Welcome {user.email}</Text>
-      <Button title={'Déconnexion'} onPress={() => auth().signOut()} />
-    </View>
-  );
-
+      <AppContainer />
+    )
+  }
 }
 
+class ProfileScreen extends React.Component {
+  render() {
+    return (
+      <View style={styles.container}>
+        <Text>ProfileScreen</Text>
+      </View>
+    )
+  }
+}
+
+class MapScreen extends React.Component {
+  render() {
+    return (
+      <Carte></Carte>
+    )
+  }
+}
+
+class FavScreen extends React.Component {
+  render() {
+    return (
+      <View style={styles.container}>
+        <Text>FavScreen</Text>
+      </View>
+    )
+  }
+}
+class App extends React.Component {
+  render() {
+    return <AppContainer />;
+  }
+}
+
+const AppNavigator = createStackNavigator(
+  {
+    Search: Search,
+    AlgoFiltre: AlgoFiltre,
+  },
+  {
+    initialRouteName: 'Search',
+  }
+);
+const AppContainer = createAppContainer(AppNavigator);
+
+const TabNavigator = createMaterialBottomTabNavigator(
+  {
+    Accueil: {
+      screen: HomeScreen,
+      navigationOptions: {
+        tabBarIcon: ({ tintColor }) => (
+          <View>
+            <Icon style={[{color: tintColor}]} size={25} name={'ios-home'} />
+          </View>
+        ),
+      }
+    },
+    Favoris: {
+      screen: FavScreen,
+      navigationOptions: { 
+        tabBarIcon: ({ tintColor }) => (
+          <View>
+            <Icon style={[{color: tintColor}]} size={25} name={'ios-star'} />
+          </View>
+        ),
+        activeColor: '#EB5E5E',
+        inactiveColor: '#ffffff',
+        barStyle: { backgroundColor: '#5DC0C6' },
+      }
+    },
+    Carte: {
+      screen: MapScreen,
+      navigationOptions: {
+        tabBarIcon: ({ tintColor }) => (
+          <View>
+            <Icon style={[{color: tintColor}]} size={25} name={'ios-map'} />
+          </View>
+        ),
+        activeColor: '#EB5E5E',
+        inactiveColor: '#ffffff',
+        barStyle: { backgroundColor: '#5DC0C6' },
+      }
+    },
+    Profil: {
+      screen: ProfileScreen,
+      navigationOptions: {
+        tabBarIcon: ({ tintColor }) => (
+          <View>
+            <Icon style={[{color: tintColor}]} size={25} name={'ios-person'} />
+          </View>
+        ),
+        activeColor: '#EB5E5E',
+        inactiveColor: '#ffffff',
+        barStyle: { backgroundColor: '#5DC0C6' },
+      }
+    },
+  },
+  {
+    initialRouteName: 'Accueil',
+    activeColor: '#EB5E5E',
+    inactiveColor: '#ffffff',
+    barStyle: { backgroundColor: '#5DC0C6' },
+  }
+);
 
 const styles = StyleSheet.create({
-  main_text: {
-    marginTop: 10,
-    textAlign: 'center'
+  scrollView: {
+    backgroundColor: Colors.lighter,
   },
-  textinput: {
-    marginLeft: 5,
-    marginRight: 5,
-    height: 50,
-    borderColor: '#000000',
-    borderWidth: 1,
-    paddingLeft: 5
+  engine: {
+    position: 'absolute',
+    right: 0,
   },
-  submit: {
-    paddingTop: 10
-  } 
-})
+  body: {
+    backgroundColor: Colors.white,
+  },
+  sectionContainer: {
+    marginTop: 32,
+    paddingHorizontal: 24,
+  },
+  sectionTitle: {
+    fontSize: 24,
+    fontWeight: '600',
+    color: Colors.black,
+  },
+  sectionDescription: {
+    marginTop: 8,
+    fontSize: 18,
+    fontWeight: '400',
+    color: Colors.dark,
+  },
+  highlight: {
+    fontWeight: '700',
+  },
+  footer: {
+    color: Colors.dark,
+    fontSize: 12,
+    fontWeight: '600',
+    padding: 4,
+    paddingRight: 12,
+    textAlign: 'right',
+  },
+});
 
-export default App;
+export default createAppContainer(TabNavigator);
