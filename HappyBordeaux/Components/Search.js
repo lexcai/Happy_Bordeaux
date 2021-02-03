@@ -7,6 +7,7 @@ import { createStackNavigator } from 'react-navigation-stack';
 import bars from '../Helpers/BarData'
 import BarItem from './BarItem'
 import AlgoFiltre from './AlgoFiltre'
+import Icon from 'react-native-vector-icons/Ionicons';
 
 class Search extends React.Component {
   render() {
@@ -17,7 +18,7 @@ class Search extends React.Component {
           <TextInput style={styles.texteBarre} placeholder='Nom du bar'/>
         </View>
         <View style={styles.filtre}>
-        <Button style={styles.boutonFiltre} title='•••' onPress={() => this.props.navigation.navigate('AlgoFiltre')}/>
+          <Icon name="ellipsis-vertical-outline" size={34} color="#52575D" onPress={() => this.props.navigation.navigate('AlgoFiltre')}></Icon>
         </View>
       </View>
         <Button title='Rechercher'/>
@@ -47,6 +48,7 @@ const styles = StyleSheet.create({
     flex:5,
     height: 50,
     width: 50,
+    marginRight: 25,
     borderColor: '#000000',
     borderWidth: 1,
     paddingLeft: 5

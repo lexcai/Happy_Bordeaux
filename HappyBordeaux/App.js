@@ -25,6 +25,7 @@ import {createMaterialBottomTabNavigator} from 'react-navigation-material-bottom
 import Search from './Components/Search'
 import AlgoFiltre from './Components/AlgoFiltre'
 import Carte from './Components/Carte'
+import Profil from './Components/Profil'
 
 class HomeScreen extends React.Component {
   render() {
@@ -37,9 +38,7 @@ class HomeScreen extends React.Component {
 class ProfileScreen extends React.Component {
   render() {
     return (
-      <View style={styles.container}>
-        <Text>ProfileScreen</Text>
-      </View>
+      <Profil></Profil>
     )
   }
 }
