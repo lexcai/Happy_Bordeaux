@@ -19,10 +19,20 @@ export class Carte extends React.Component {
                 latitudeDelta: 0.0922,          
                 longitudeDelta: 0.0421        }}
               showsUserLocation={true} 
+              zoomEnabled={true}
             >
                 <Marker
                   coordinate={{ latitude : 44.838, longitude : -0.5777 }}
-                />  
+                  title={"Bar Truc"}
+                />
+                <Marker
+                  coordinate={{ latitude : 44.840469, longitude : -0.569266 }}
+                  title={"Wall Street"}
+                /> 
+                <Marker
+                  coordinate={{ latitude : 44.853158, longitude : -0.567504 }}
+                  title={"King Kong Bar"}
+                /> 
             </MapView>    
             </View>
       );

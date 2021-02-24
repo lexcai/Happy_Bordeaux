@@ -33,6 +33,8 @@ export class ProfilBar extends React.Component {
                             <Image style={styles.listeImageBar} source={{uri: "image"}} resizeMode="center" />
                             <Image style={styles.listeImageBar} source={{uri: "image"}} resizeMode="center" />
                         </View>
+                        <Button title='Ajouter un évennement' onPress={() => {alert('You tapped the button!');}}/>
+                        <Button title='Supprimer un évennement' onPress={() => {alert('You tapped the button!');}}/>
                         <View style={styles.statsBox}>
                             <Text style={{marginLeft: 5, fontSize: 18, textDecorationLine: 'underline'}}>Ils vous ont ajoutés en Favoris :</Text>
                         </View>
