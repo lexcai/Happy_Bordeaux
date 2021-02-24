@@ -2,7 +2,7 @@
 
 import React from 'react'
 import bars from '../Helpers/BarData'
-import BarItem from './BarItem'
+import BarItemFavoris from './BaritemFavoris'
 
 import { StyleSheet, View, Text, Button, SectionList, FlatList } from 'react-native'
 
@@ -18,7 +18,7 @@ export class Favoris extends React.Component {
             <FlatList
                 data={bars}
                 keyExtractor={(item) => item.id.toString()}
-                renderItem={({item}) => <BarItem bar={item}/>}
+                renderItem={({item}) => <BarItemFavoris bar={item}/>}
             />
             </View>
         </View>

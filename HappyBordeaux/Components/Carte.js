@@ -3,21 +3,27 @@
 import React from 'react'
 
 import MapView from 'react-native-maps'
+import { Marker } from 'react-native-maps'
 
 import { StyleSheet, View, Text, Button, SectionList } from 'react-native'
 
-
 export class Carte extends React.Component {
     render() {
+      const markers = this.props.markersTest
       return (
         <View style={styles.container}>
-                <MapView style={{flex: 1}}  
-                region={{          
-                    latitude: 44.837789,
-                    longitude: -0.57918,      
-                    latitudeDelta: 0.0922,          
-                    longitudeDelta: 0.0421        }}
-                showsUserLocation={true}      />
+            <MapView style={{flex: 1}}
+              region={{          
+                latitude: 44.837789,
+                longitude: -0.57918,      
+                latitudeDelta: 0.0922,          
+                longitudeDelta: 0.0421        }}
+              showsUserLocation={true} 
+            >
+                <Marker
+                  coordinate={{ latitude : 44.838, longitude : -0.5777 }}
+                />  
+            </MapView>    
             </View>
       );
     }

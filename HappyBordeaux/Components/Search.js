@@ -6,7 +6,6 @@ import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
 import bars from '../Helpers/BarData'
 import BarItem from './BarItem'
-import AlgoFiltre from './AlgoFiltre'
 import Icon from 'react-native-vector-icons/Ionicons';
 
 class Search extends React.Component {

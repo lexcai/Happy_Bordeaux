@@ -19,6 +19,7 @@
 		5954B8857F851AED6E1C7AC3 /* libPods-HappyBordeaux-HappyBordeauxTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F27B406F903F6870C736BF0 /* libPods-HappyBordeaux-HappyBordeauxTests.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 		891A13F123F8BE65E850585C /* libPods-HappyBordeaux.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DA62DA7A906E04C9BE22D56 /* libPods-HappyBordeaux.a */; };
+		A62585D125CAF8830044C675 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A62585D025CAF8830044C675 /* GoogleService-Info.plist */; };
 		C7EAF8FDCBAAC88E43C03B23 /* libPods-HappyBordeaux-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 43C4ECC9D7E00061CC272149 /* libPods-HappyBordeaux-tvOSTests.a */; };
 /* End PBXBuildFile section */
 
@@ -62,6 +63,7 @@
 		8A53A35ECBC689859ED712BB /* Pods-HappyBordeaux-HappyBordeauxTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HappyBordeaux-HappyBordeauxTests.debug.xcconfig"; path = "Target Support Files/Pods-HappyBordeaux-HappyBordeauxTests/Pods-HappyBordeaux-HappyBordeauxTests.debug.xcconfig"; sourceTree = "<group>"; };
 		924673A020F702D9D08E4214 /* libPods-HappyBordeaux-tvOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-HappyBordeaux-tvOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9DA62DA7A906E04C9BE22D56 /* libPods-HappyBordeaux.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-HappyBordeaux.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A62585D025CAF8830044C675 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		B32DC012A9F92E9325FA9238 /* Pods-HappyBordeaux.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HappyBordeaux.release.xcconfig"; path = "Target Support Files/Pods-HappyBordeaux/Pods-HappyBordeaux.release.xcconfig"; sourceTree = "<group>"; };
 		C454238995CFD674C9D49A29 /* Pods-HappyBordeaux-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HappyBordeaux-tvOS.debug.xcconfig"; path = "Target Support Files/Pods-HappyBordeaux-tvOS/Pods-HappyBordeaux-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
 		E2ACA894ACEE0D217652CFDA /* Pods-HappyBordeaux-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HappyBordeaux-tvOS.release.xcconfig"; path = "Target Support Files/Pods-HappyBordeaux-tvOS/Pods-HappyBordeaux-tvOS.release.xcconfig"; sourceTree = "<group>"; };
@@ -136,6 +138,13 @@
 			name = HappyBordeaux;
 			sourceTree = "<group>";
 		};
+		20589F0AC8884910A13C248D /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
 		2D16E6871FA4F8E400B85C8A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -161,7 +170,6 @@
 				7BF7F16DE04E96E9CB3DA8F9 /* Pods-HappyBordeaux-tvOSTests.debug.xcconfig */,
 				6D41CA8EB51BE667D922487A /* Pods-HappyBordeaux-tvOSTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -175,6 +183,7 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
+				A62585D025CAF8830044C675 /* GoogleService-Info.plist */,
 				13B07FAE1A68108700A75B9A /* HappyBordeaux */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				00E356EF1AD99517003FC87E /* HappyBordeauxTests */,
@@ -198,14 +207,6 @@
 			);
 			name = Products;
 			sourceTree = "<group>";
-		};
-		20589F0AC8884910A13C248D /* Resources */ = {
-			isa = "PBXGroup";
-			children = (
-			);
-			name = Resources;
-			sourceTree = "<group>";
-			path = "";
 		};
 /* End PBXGroup section */
 
@@ -352,6 +353,7 @@
 			files = (
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
+				A62585D125CAF8830044C675 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -707,7 +709,7 @@
 					"-lc++",
 					"$(inherited)",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.happybordeaux.app";
+				PRODUCT_BUNDLE_IDENTIFIER = com.happybordeaux.app;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HappyBordeaux.app/HappyBordeaux";
 			};
@@ -727,7 +729,7 @@
 					"-lc++",
 					"$(inherited)",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.happybordeaux.app";
+				PRODUCT_BUNDLE_IDENTIFIER = com.happybordeaux.app;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HappyBordeaux.app/HappyBordeaux";
 			};
@@ -748,7 +750,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.happybordeaux.app";
+				PRODUCT_BUNDLE_IDENTIFIER = com.happybordeaux.app;
 				PRODUCT_NAME = HappyBordeaux;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -770,7 +772,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.happybordeaux.app";
+				PRODUCT_BUNDLE_IDENTIFIER = com.happybordeaux.app;
 				PRODUCT_NAME = HappyBordeaux;
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";

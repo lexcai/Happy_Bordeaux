@@ -1,4 +1,4 @@
-// Components/Profil.js
+// Components/ProfilBar.js
 
 import React from 'react';
 import {StyleSheet, View, Image, Text, FlatList, Card, Button} from 'react-native';
@@ -6,7 +6,7 @@ import { ScrollView } from 'react-native-gesture-handler';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import Icon from 'react-native-vector-icons/Ionicons';
 
-export class Profil extends React.Component {
+export class ProfilBar extends React.Component {
     render() {
         return(
             <SafeAreaView style={styles.container}>
@@ -18,14 +18,14 @@ export class Profil extends React.Component {
                     </View>
                     <View style={styles.infoProfil}>
                         <Icon name="person-circle-outline" size={200} color="#f2eddb"></Icon>
-                        <Text style={[styles.text, {fontWeight:"600", fontsize: 60}]}>Prénom Nom{"\n"}Adresse e-mail</Text>
+                        <Text style={[styles.text, {fontWeight:"600", fontsize: 60}]}>Nom du bar{"\n"}Adresse e-mail</Text>
                         <View style={styles.bouton}>
                             <Text style={styles.textBouton} onPress={() => {alert('You tapped the button!');}}>Modifier le profil</Text>
                         </View>
                     </View>
                     <View style={styles.statsContainer}>
                         <View style={styles.statsBox}>
-                            <Text style={{marginLeft: 5, fontSize: 18, textDecorationLine: 'underline'}}>Évènements à venir :</Text>
+                            <Text style={{marginLeft: 5, fontSize: 18, textDecorationLine: 'underline'}}>Évènements à venir que vous avez partagés :</Text>
                         </View>
                         <View style={styles.blocImage}>
                             <Image style={styles.listeImageBar} source={{uri: "image"}} resizeMode="center" />
@@ -34,7 +34,7 @@ export class Profil extends React.Component {
                             <Image style={styles.listeImageBar} source={{uri: "image"}} resizeMode="center" />
                         </View>
                         <View style={styles.statsBox}>
-                            <Text style={{marginLeft: 5, fontSize: 18, textDecorationLine: 'underline'}}>Ami.e.s :</Text>
+                            <Text style={{marginLeft: 5, fontSize: 18, textDecorationLine: 'underline'}}>Ils vous ont ajoutés en Favoris :</Text>
                         </View>
                         <View style={styles.blocAmis}>
                             <Icon name="person-circle-outline" size={120} color="#f2eddb"></Icon>
@@ -43,7 +43,7 @@ export class Profil extends React.Component {
                             <Icon name="person-circle-outline" size={120} color="#f2eddb"></Icon>
                         </View>
                         <View style={styles.statsBox}>
-                            <Text style={{marginLeft: 5, fontSize: 18, textDecorationLine: 'underline'}}>Évènements passés :</Text>
+                            <Text style={{marginLeft: 5, fontSize: 18, textDecorationLine: 'underline'}}>Évènements passés que vous avez partagés :</Text>
                         </View>
                         <View style={styles.blocImage}>
                             <Image style={styles.listeImageBar} source={{uri: "image"}} resizeMode="center" />
@@ -168,4 +168,4 @@ export class Profil extends React.Component {
       }
   });
 
-  export default Profil
+  export default ProfilBar

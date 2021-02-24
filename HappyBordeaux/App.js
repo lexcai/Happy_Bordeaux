@@ -11,7 +11,7 @@
 import React from 'react';
 import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
-import { SafeAreaView, ScrollView,View,Text,StatusBar,StyleSheet } from 'react-native';
+import { SafeAreaView, ScrollView,View,Text,StatusBar,StyleSheet, Button } from 'react-native';
 
 import {
   Header,
@@ -25,8 +25,10 @@ import {createMaterialBottomTabNavigator} from 'react-navigation-material-bottom
 import Search from './Components/Search'
 import AlgoFiltre from './Components/AlgoFiltre'
 import Carte from './Components/Carte'
+import AllProfil from './Components/AllProfil'
 import Profil from './Components/Profil'
 import Favoris from './Components/Favoris';
+import ProfilBar from './Components/ProfilBar';
 
 class HomeScreen extends React.Component {
   render() {
@@ -39,7 +41,7 @@ class HomeScreen extends React.Component {
 class ProfileScreen extends React.Component {
   render() {
     return (
-      <Profil></Profil>
+      <ConnexionContainer />
     )
   }
 }
@@ -75,6 +77,19 @@ const AppNavigator = createStackNavigator(
   }
 );
 const AppContainer = createAppContainer(AppNavigator);
+
+
+const ConnexionNavigator = createStackNavigator(
+  {
+    AllProfil: AllProfil,
+    Profil: Profil,
+    ProfilBar: ProfilBar
+  },
+  {
+    initialRouteName: 'AllProfil',
+  }
+);
+const ConnexionContainer = createAppContainer(ConnexionNavigator);
 
 const TabNavigator = createMaterialBottomTabNavigator(
   {
