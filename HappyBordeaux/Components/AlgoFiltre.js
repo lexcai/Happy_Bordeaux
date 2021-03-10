@@ -2,6 +2,9 @@
 
 import React from 'react'
 import { StyleSheet, View, Text, Button, SectionList } from 'react-native'
+import Icon from 'react-native-vector-icons/Ionicons';
+import { ScrollView } from 'react-native-gesture-handler';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 const DATA = [
     {
@@ -32,10 +35,15 @@ const DATA = [
     </View>
   );
 
-export class AlgoFiltre extends React.Component {
+class AlgoFiltre extends React.Component {
     render() {
       return (
-        <View style={styles.container}>
+        <SafeAreaView style={styles.container}>
+          <ScrollView showsVerticalScrollIndicator={false}>
+            <View style={{position:"absolute"}}>
+              <Icon name="chevron-back-outline" size={28} onPress={() => this.props.navigation.navigate('Search')}></Icon>
+            </View>
+            <View style={styles.main_container}>
                 <SectionList
                     sections={DATA}
                     keyExtractor={(item, index) => item + index}
@@ -46,6 +54,8 @@ export class AlgoFiltre extends React.Component {
                     />
                 <Button title="Valider" onPress={() => this.props.navigation.navigate('Search')}/>
             </View>
+        </ScrollView>
+      </SafeAreaView>
       );
     }
   }
@@ -53,17 +63,24 @@ export class AlgoFiltre extends React.Component {
 const styles = StyleSheet.create({
     container: {
       flex: 1,
-      justifyContent: 'center',
-      marginHorizontal: 16,
+      backgroundColor: "#aedfe2"
+    },
+    main_container: {
+        marginTop: 30,
+        marginLeft: 10
     },
     item: {
-      backgroundColor: "#f9c2ff",
       padding: 20,
-      marginVertical: 8
+      marginVertical: 8,
+      fontFamily: "HelveticaNeue",
+      color: "black",
+      fontWeight: "bold"
     },
     header: {
-      fontSize: 22,
-      backgroundColor: "#fff"
+      fontFamily: "HelveticaNeue",
+      color: "black",
+      fontWeight: "bold",
+      fontSize: 22
     },
     title: {
       fontSize: 16

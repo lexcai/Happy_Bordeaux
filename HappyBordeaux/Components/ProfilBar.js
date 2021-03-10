@@ -11,6 +11,9 @@ export class ProfilBar extends React.Component {
         return(
             <SafeAreaView style={styles.container}>
                 <ScrollView showsVerticalScrollIndicator={false}>
+                    <View style={{position:"absolute"}}>
+                        <Icon name="chevron-back-outline" size={28} onPress={() => this.props.navigation.navigate('AllProfil')}></Icon>
+                    </View>
                     <View style={styles.titleBar}>
                         <Icon style={styles.Logo} name="chatbubble-outline" size={28} color="#52575D"></Icon>
                         <Icon style={styles.Logo} name="notifications-outline" size={28} color="#52575D"></Icon>
@@ -27,32 +30,32 @@ export class ProfilBar extends React.Component {
                         <View style={styles.statsBox}>
                             <Text style={{marginLeft: 5, fontSize: 18, textDecorationLine: 'underline'}}>Évènements à venir que vous avez partagés :</Text>
                         </View>
-                        <View style={styles.blocImage}>
+                        <ScrollView horizontal={true} style={styles.blocImage}>
                             <Image style={styles.listeImageBar} source={{uri: "image"}} resizeMode="center" />
                             <Image style={styles.listeImageBar} source={{uri: "image"}} resizeMode="center" />
                             <Image style={styles.listeImageBar} source={{uri: "image"}} resizeMode="center" />
                             <Image style={styles.listeImageBar} source={{uri: "image"}} resizeMode="center" />
-                        </View>
+                        </ScrollView>
                         <Button title='Ajouter un évennement' onPress={() => {alert('You tapped the button!');}}/>
                         <Button title='Supprimer un évennement' onPress={() => {alert('You tapped the button!');}}/>
                         <View style={styles.statsBox}>
                             <Text style={{marginLeft: 5, fontSize: 18, textDecorationLine: 'underline'}}>Ils vous ont ajoutés en Favoris :</Text>
                         </View>
-                        <View style={styles.blocAmis}>
+                        <ScrollView horizontal={true} style={styles.blocAmis}>
                             <Icon name="person-circle-outline" size={120} color="#f2eddb"></Icon>
                             <Icon name="person-circle-outline" size={120} color="#f2eddb"></Icon>
                             <Icon name="person-circle-outline" size={120} color="#f2eddb"></Icon>
                             <Icon name="person-circle-outline" size={120} color="#f2eddb"></Icon>
-                        </View>
+                        </ScrollView>
                         <View style={styles.statsBox}>
                             <Text style={{marginLeft: 5, fontSize: 18, textDecorationLine: 'underline'}}>Évènements passés que vous avez partagés :</Text>
                         </View>
-                        <View style={styles.blocImage}>
+                        <ScrollView horizontal={true} style={styles.blocImage}>
                             <Image style={styles.listeImageBar} source={{uri: "image"}} resizeMode="center" />
                             <Image style={styles.listeImageBar} source={{uri: "image"}} resizeMode="center" />
                             <Image style={styles.listeImageBar} source={{uri: "image"}} resizeMode="center" />
                             <Image style={styles.listeImageBar} source={{uri: "image"}} resizeMode="center" />
-                        </View>
+                        </ScrollView>
                     </View>
                 </ScrollView>
             </SafeAreaView>
@@ -63,8 +66,7 @@ export class ProfilBar extends React.Component {
   const styles = StyleSheet.create({
       container: {
           flex: 1,
-          backgroundColor: "#fff",
-          marginTop: -50
+          backgroundColor: "#fff"
       },
       text: {
           fontFamily: "HelveticaNeue",
@@ -98,7 +100,6 @@ export class ProfilBar extends React.Component {
       titleBar: {
           flexDirection: "row",
           marginLeft: 270,
-          marginTop: 24,
           marginHorizontal: 16
       },
       Logo: {
@@ -147,7 +148,7 @@ export class ProfilBar extends React.Component {
           marginTop: 42,
       },
       blocImage:{
-        margin: 15,
+        marginTop : 15,
         flexDirection: "row",
         backgroundColor: "#eb7570"
       },

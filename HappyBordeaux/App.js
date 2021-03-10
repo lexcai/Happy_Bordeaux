@@ -74,6 +74,7 @@ const AppNavigator = createStackNavigator(
   },
   {
     initialRouteName: 'Search',
+    headerMode : "none"
   }
 );
 const AppContainer = createAppContainer(AppNavigator);
@@ -87,6 +88,7 @@ const ConnexionNavigator = createStackNavigator(
   },
   {
     initialRouteName: 'AllProfil',
+    headerMode : "none"
   }
 );
 const ConnexionContainer = createAppContainer(ConnexionNavigator);

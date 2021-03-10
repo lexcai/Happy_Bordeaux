@@ -1,80 +1,143 @@
 // Components/BarItem.js
 
 import React from 'react'
-import { StyleSheet, View, Text, Image } from 'react-native'
+import { StyleSheet, View, Text, Image, SafeAreaView, ScrollView, Button } from 'react-native'
+import Icon from 'react-native-vector-icons/Ionicons';
 
 class BarItem extends React.Component {
-  render() {
-      const bar = this.props.bar
-    return (
-      <View style={styles.main_container}>
-        <Image
-          style={styles.image}
-          source={{uri: "image"}}
-        />
-        <View style={styles.content_container}>
-          <View style={styles.header_container}>
-            <Text style={styles.title_text}>{bar.nom}</Text>
-    <Text style={styles.vote_text}>{bar.note}</Text>
-          </View>
-          <View style={styles.description_container}>
-            <Text style={styles.description_text} numberOfLines={6}>{bar.descr}</Text>
-            {/* La propriété numberOfLines permet de couper un texte si celui-ci est trop long, il suffit de définir un nombre maximum de ligne */}
-          </View>
-          <View style={styles.hh_container}>
-            <Text style={styles.hh_text}>Happy hour de {bar.HappyH}</Text>
-          </View>
-        </View>
+  _noteBar(laNote) {
+    note = parseInt(laNote);
+    console.log(note);
+    if (note == 0){
+      return ;
+    }
+    if (note == 1){
+      return <View style={styles.note_container}>
+        <Icon size={30} style={{marginTop: 135}} name="wine-outline"></Icon>
       </View>
+    }
+    if (note == 2){
+      return <View style={styles.note_container}>
+        <Icon size={30} style={{marginTop: 135}} name="wine-outline"></Icon>
+        <Icon size={30} style={{marginTop: 135}} name="wine-outline"></Icon>
+      </View>
+    }
+    if (note == 3){
+      return <View style={styles.note_container}>
+        <Icon size={30} style={{marginTop: 135}} name="wine-outline"></Icon>
+        <Icon size={30} style={{marginTop: 135}} name="wine-outline"></Icon>
+        <Icon size={30} style={{marginTop: 135}} name="wine-outline"></Icon>
+      </View>
+    }
+    if (note == 4){
+      return <View style={styles.note_container}> 
+      <Icon size={30} style={{marginTop: 135}} name="wine-outline"></Icon>
+      <Icon size={30} style={{marginTop: 135}} name="wine-outline"></Icon>
+      <Icon size={30} style={{marginTop: 135}} name="wine-outline"></Icon>
+      <Icon size={30} style={{marginTop: 135}} name="wine-outline"></Icon>
+    </View>
+    }
+    if (note == 5){
+      return <View style={styles.note_container}>
+      <Icon size={30} style={{marginTop: 135}} name="wine-outline"></Icon>
+      <Icon size={30} style={{marginTop: 135}} name="wine-outline"></Icon>
+      <Icon size={30} style={{marginTop: 135}} name="wine-outline"></Icon>
+      <Icon size={30} style={{marginTop: 135}} name="wine-outline"></Icon>
+      <Icon size={30} style={{marginTop: 135}} name="wine-outline"></Icon>
+    </View>
+    }
+  }
+  render() {
+    const bar = this.props.bar
+    return (
+      <SafeAreaView style={styles.container}>
+          <ScrollView showsVerticalScrollIndicator={false}>
+              <View style={styles.main_container}>
+                  <View>
+                      <Image
+                      style={styles.image}
+                      source={{uri: "image"}}
+                      />
+                  </View>
+                  <View style={styles.content_container}>
+                      <Text style={styles.title_text}>{bar.nom}</Text>
+                      <Text>{this._noteBar(bar.note)}</Text>
+                  </View>
+                  <View style={styles.descr_container}>
+                      <Text style={styles.description_text} numberOfLines={6}>{bar.descr}</Text>
+                  </View>
+              </View>
+          </ScrollView>
+      </SafeAreaView>
     )
   }
 }
 
 const styles = StyleSheet.create({
+  container: {
+    flex: 1
+  },
   main_container: {
     marginTop: 20,
-    height: 190,
+    height: 250,
     flexDirection: 'row'
   },
   image: {
-    width: 120,
-    height: 180,
+    width: 360,
+    height: 240,
     margin: 5,
-    backgroundColor: 'gray'
+    backgroundColor: 'gray',
+    marginLeft: 25,
+    marginRight: 25,
+    borderRadius: 50
   },
   content_container: {
-    flex: 1,
-    margin: 5
+    position:"absolute",
+    height: 230,
+    flexDirection: 'row',
+    width: 350,
+    marginLeft: 25,
+    marginRight: 25
   },
-  header_container: {
-    flex: 3,
-    flexDirection: 'row'
+  descr_container: {
+    position:"absolute",
+    height: 240,
+    width: 360,
+    marginTop: 207,
+    flexDirection: 'row', 
+    justifyContent:"flex-end"
   },
-  title_text: {
+  note_container: {
+    position:"absolute",
+    height: 230,
+    width: 350,
+    flexDirection:"row",
+    justifyContent:"flex-end"
+  },
+  title_text:{
+    position:"absolute",
     fontWeight: 'bold',
-    fontSize: 20,
+    fontSize: 23,
     flex: 1,
     flexWrap: 'wrap',
-    paddingRight: 5
+    paddingRight: 5,
+    marginTop: 150,
+    marginLeft: 30
   },
-  vote_text: {
+  vote_text:{
+    position:"absolute",
     fontWeight: 'bold',
-    fontSize: 26,
-    color: '#666666'
+    fontSize: 23,
+    flex: 1,
+    flexWrap: 'wrap',
+    paddingRight: 5,
+    marginTop: 150,
+    marginLeft: 300
   },
-  description_container: {
-    flex: 7
-  },
-  description_text: {
-    fontStyle: 'italic',
-    color: '#666666'
-  },
-  hh_container: {
-    flex: 1
-  },
-  hh_text: {
-    textAlign: 'right',
-    fontSize: 14
+  description_text:{
+    position:"absolute",
+    fontSize: 14,
+    paddingRight: 5,
   }
 })
 
