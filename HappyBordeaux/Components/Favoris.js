@@ -28,7 +28,8 @@ export class Favoris extends React.Component {
 const styles = StyleSheet.create({
     container: {
       justifyContent: 'center',
-      backgroundColor: "#aedfe2"
+      backgroundColor: "#aedfe2",
+      marginBottom : 50
     }
   });
 

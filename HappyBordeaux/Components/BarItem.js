@@ -3,52 +3,16 @@
 import React from 'react'
 import { StyleSheet, View, Text, Image, SafeAreaView, ScrollView, Button } from 'react-native'
 import Icon from 'react-native-vector-icons/Ionicons';
+import { withNavigation } from 'react-navigation';
 
 class BarItem extends React.Component {
-  _noteBar(laNote) {
-    note = parseInt(laNote);
-    console.log(note);
-    if (note == 0){
-      return ;
-    }
-    if (note == 1){
-      return <View style={styles.note_container}>
-        <Icon size={30} style={{marginTop: 135}} name="wine-outline"></Icon>
-      </View>
-    }
-    if (note == 2){
-      return <View style={styles.note_container}>
-        <Icon size={30} style={{marginTop: 135}} name="wine-outline"></Icon>
-        <Icon size={30} style={{marginTop: 135}} name="wine-outline"></Icon>
-      </View>
-    }
-    if (note == 3){
-      return <View style={styles.note_container}>
-        <Icon size={30} style={{marginTop: 135}} name="wine-outline"></Icon>
-        <Icon size={30} style={{marginTop: 135}} name="wine-outline"></Icon>
-        <Icon size={30} style={{marginTop: 135}} name="wine-outline"></Icon>
-      </View>
-    }
-    if (note == 4){
-      return <View style={styles.note_container}> 
-      <Icon size={30} style={{marginTop: 135}} name="wine-outline"></Icon>
-      <Icon size={30} style={{marginTop: 135}} name="wine-outline"></Icon>
-      <Icon size={30} style={{marginTop: 135}} name="wine-outline"></Icon>
-      <Icon size={30} style={{marginTop: 135}} name="wine-outline"></Icon>
-    </View>
-    }
-    if (note == 5){
-      return <View style={styles.note_container}>
-      <Icon size={30} style={{marginTop: 135}} name="wine-outline"></Icon>
-      <Icon size={30} style={{marginTop: 135}} name="wine-outline"></Icon>
-      <Icon size={30} style={{marginTop: 135}} name="wine-outline"></Icon>
-      <Icon size={30} style={{marginTop: 135}} name="wine-outline"></Icon>
-      <Icon size={30} style={{marginTop: 135}} name="wine-outline"></Icon>
-    </View>
-    }
-  }
+  constructor(props) {
+    super(props)
+    bool=false;
+    this.state = { iconName: "heart-outline", color: "black" };
+   }
   render() {
-    const bar = this.props.bar
+    const ev = this.props.ev
     return (
       <SafeAreaView style={styles.container}>
           <ScrollView showsVerticalScrollIndicator={false}>
@@ -60,11 +24,12 @@ class BarItem extends React.Component {
                       />
                   </View>
                   <View style={styles.content_container}>
-                      <Text style={styles.title_text}>{bar.nom}</Text>
-                      <Text>{this._noteBar(bar.note)}</Text>
+                      <Text style={styles.title_text} onPress={() => this.props.navigation.navigate('DetailsBar')}>{ev.nom}</Text>
+                      <Text style={styles.title_heure}>{ev.heureEvennement}</Text>
                   </View>
                   <View style={styles.descr_container}>
-                      <Text style={styles.description_text} numberOfLines={6}>{bar.descr}</Text>
+                      <Icon size={30} style={{marginRight: 280, marginTop:-10, color:this.state.color}} onPress={() => this.setState({ iconName: "heart", color:"red" })} name= {this.state.iconName}></Icon>
+                      <Text style={styles.description_text} numberOfLines={2}>{ev.descr}</Text>
                   </View>
               </View>
           </ScrollView>
@@ -78,9 +43,9 @@ const styles = StyleSheet.create({
     flex: 1
   },
   main_container: {
-    marginTop: 20,
     height: 250,
-    flexDirection: 'row'
+    flexDirection: 'row',
+    marginBottom: 25
   },
   image: {
     width: 360,
@@ -123,6 +88,15 @@ const styles = StyleSheet.create({
     paddingRight: 5,
     marginTop: 150,
     marginLeft: 30
+  },
+  title_heure:{
+    position:"absolute",
+    fontSize: 22,
+    flex: 1,
+    flexWrap: 'wrap',
+    paddingRight: 5,
+    marginTop: 150,
+    marginLeft: 250
   },
   vote_text:{
     position:"absolute",

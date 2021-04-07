@@ -4,12 +4,14 @@ import React from 'react'
 
 import MapView from 'react-native-maps'
 import { Marker } from 'react-native-maps'
+import bars from '../Helpers/BarData'
 
 import { StyleSheet, View, Text, Button, SectionList } from 'react-native'
 
 export class Carte extends React.Component {
     render() {
       const markers = this.props.markersTest
+      const bar = this.props.bar
       return (
         <View style={styles.container}>
             <MapView style={{flex: 1}}

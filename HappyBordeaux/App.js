@@ -29,6 +29,7 @@ import AllProfil from './Components/AllProfil'
 import Profil from './Components/Profil'
 import Favoris from './Components/Favoris';
 import ProfilBar from './Components/ProfilBar';
+import DetailsBar from './Components/DetailsBar';
 
 class HomeScreen extends React.Component {
   render() {
@@ -71,6 +72,7 @@ const AppNavigator = createStackNavigator(
   {
     Search: Search,
     AlgoFiltre: AlgoFiltre,
+    DetailsBar: DetailsBar
   },
   {
     initialRouteName: 'Search',
@@ -78,7 +80,6 @@ const AppNavigator = createStackNavigator(
   }
 );
 const AppContainer = createAppContainer(AppNavigator);
-
 
 const ConnexionNavigator = createStackNavigator(
   {
@@ -149,7 +150,7 @@ const TabNavigator = createMaterialBottomTabNavigator(
     initialRouteName: 'Accueil',
     activeColor: '#EB5E5E',
     inactiveColor: '#ffffff',
-    barStyle: { backgroundColor: '#5DC0C6' },
+    barStyle: { backgroundColor: '#5DC0C6' }
   }
 );
 

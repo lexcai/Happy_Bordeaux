@@ -2,67 +2,22 @@
 
 import React from 'react'
 import { StyleSheet, View, TextInput, Image, Button, FlatList } from 'react-native'
-import { createAppContainer } from 'react-navigation';
-import { createStackNavigator } from 'react-navigation-stack';
-import bars from '../Helpers/BarData'
+import evs from '../Helpers/EvennementData'
 import BarItem from './BarItem'
 import Icon from 'react-native-vector-icons/Ionicons';
-import BarItemFavoris from './BaritemFavoris';
 
 class Search extends React.Component {
   constructor(props) {
     super(props)
     this.searchedText = "" 
   }
-  _noteBar(laNote) {
-    note = parseInt(laNote);
-    console.log(note);
-    if (note == 0){
-      return ;
-    }
-    if (note == 1){
-      return <View style={styles.note_container}>
-        <Icon size={30} style={{marginTop: 135}} name="wine-outline"></Icon>
-      </View>
-    }
-    if (note == 2){
-      return <View style={styles.note_container}>
-        <Icon size={30} style={{marginTop: 135}} name="wine-outline"></Icon>
-        <Icon size={30} style={{marginTop: 135}} name="wine-outline"></Icon>
-      </View>
-    }
-    if (note == 3){
-      return <View style={styles.note_container}>
-        <Icon size={30} style={{marginTop: 135}} name="wine-outline"></Icon>
-        <Icon size={30} style={{marginTop: 135}} name="wine-outline"></Icon>
-        <Icon size={30} style={{marginTop: 135}} name="wine-outline"></Icon>
-      </View>
-    }
-    if (note == 4){
-      return <View style={styles.note_container}> 
-      <Icon size={30} style={{marginTop: 135}} name="wine-outline"></Icon>
-      <Icon size={30} style={{marginTop: 135}} name="wine-outline"></Icon>
-      <Icon size={30} style={{marginTop: 135}} name="wine-outline"></Icon>
-      <Icon size={30} style={{marginTop: 135}} name="wine-outline"></Icon>
-    </View>
-    }
-    if (note == 5){
-      return <View style={styles.note_container}>
-      <Icon size={30} style={{marginTop: 135}} name="wine-outline"></Icon>
-      <Icon size={30} style={{marginTop: 135}} name="wine-outline"></Icon>
-      <Icon size={30} style={{marginTop: 135}} name="wine-outline"></Icon>
-      <Icon size={30} style={{marginTop: 135}} name="wine-outline"></Icon>
-      <Icon size={30} style={{marginTop: 135}} name="wine-outline"></Icon>
-    </View>
-    }
-  }
   _searchTextInputChanged(saisie) {
     this.searchedText = saisie
   }
   _loadBars(saisie){
-    for (var i=0; i < bars.length-1; i++) {
-      if(saisie == bars[i].nom){
-        result=bars[i]
+    for (var i=0; i < evs.length-1; i++) {
+      if(saisie == evs[i].nom){
+        result=evs[i]
         console.log(result) // jusqu'ici tout fonctionne mais pas l'affichage du résultat
       }
     }
@@ -72,17 +27,17 @@ class Search extends React.Component {
       <View style={styles.main_container}>
         <View style={styles.header}>
           <View style={styles.barre}>
-            <TextInput style={styles.texteBarre} placeholder='Nom du bar' onChangeText={(saisie) => this._searchTextInputChanged(saisie)}/>
+            <TextInput style={styles.texteBarre} placeholder='Nom évennement' onChangeText={(saisie) => this._searchTextInputChanged(saisie)}/>
           </View>
           <View style={styles.filtre}>
             <Icon style={styles.logo} name="ellipsis-vertical-outline" size={34} color="#52575D" onPress={() => this.props.navigation.navigate('AlgoFiltre')}></Icon>
           </View>
-        </View>
+        </View >
           <Button title='Rechercher' onPress={() => this._loadBars(this.searchedText)}/>
           <FlatList
-              data={bars}
+              data={evs}
               keyExtractor={(item) => item.id.toString()}
-              renderItem={({item}) => <BarItem bar={item}/>}
+              renderItem={({item}) => <BarItem navigation={this.props.navigation} ev={item}/>}
           />
       </View>
     );
